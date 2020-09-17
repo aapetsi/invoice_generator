@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: MyString
+  billable_rate: 1.5
+  company: MyString
+  date: MyString
+  start_time: MyString
+  end_time: MyString
+  total_hours: 1.5
+
+two:
+  employee_id: MyString
+  billable_rate: 1.5
+  company: MyString
+  date: MyString
+  start_time: MyString
+  end_time: MyString
+  total_hours: 1.5

@@ -5,9 +5,10 @@ class CreateTimeSheets < ActiveRecord::Migration[6.0]
       t.float :billable_rate
       t.string :company
       t.string :date
-      t.time :start_time
-      t.time :end_time
+      t.string :start_time
+      t.string :end_time
       t.float :total_hours
+
       t.timestamps
     end
   end
