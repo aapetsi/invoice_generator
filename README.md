@@ -56,3 +56,5 @@ From the root of the application run:<br>
 ### Assumptions Made in building the project
 
 - it is assumed that the employee_id is already generated and unique to each employee
+
+- it is expected that the timesheet and invoice generation would be two different resources and thus we have to different controllers for each case. This would enable further functionality to be added to each resource (controller)
