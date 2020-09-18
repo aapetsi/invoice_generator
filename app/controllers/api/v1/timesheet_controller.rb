@@ -15,6 +15,7 @@ module Api
         timesheet = Timesheet.new(timesheet_params)
         total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
         timesheet.total_hours = total_hours
+        timesheet.company = timesheet.company.downcase
 
         if timesheet.save
           render json: {status: 'SUCCESS', message:'Saved timesheet', data: timesheet}, status: :ok
@@ -31,19 +32,19 @@ module Api
 
       def update
         timesheet = Timesheet.find(params[:id])
-        if timesheet.update_attributes(timesheet_params)
+        if timesheet.update(timesheet_params)
           total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
           timesheet.total_hours = total_hours
-          render json: {status: 'SUCCESS', message:'Updated timesheet', data:timesheet}, status: :ok
+          render json: {status: 'SUCCESS', message: 'Updated timesheet', data: timesheet}, status: :ok
         else
-          render json: {status: 'ERROR', message:'Timesheet not updated', data:timesheet.errors}, status: :unprocessable_entity
+          render json: {status: 'ERROR', message: 'Timesheet not updated', data: timesheet.errors}, status: :unprocessable_entity
         end
       end
 
       private
 
       def timesheet_params
-        params.permit(:employee_id, :billable_rate, :company, :date, :start_time, :end_time, :total_hours)
+        params.permit(:id, :timesheet, :employee_id, :billable_rate, :company, :date, :start_time, :end_time)
       end
     end
   end
