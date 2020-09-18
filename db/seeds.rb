@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-5.times do
+100.times do
   Timesheet.create!({
     employee_id: '1', 
     billable_rate: 300,
