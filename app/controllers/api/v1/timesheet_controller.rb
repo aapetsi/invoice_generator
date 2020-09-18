@@ -32,6 +32,8 @@ module Api
       def update
         timesheet = Timesheet.find(params[:id])
         if timesheet.update_attributes(timesheet_params)
+          total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
+          timesheet.total_hours = total_hours
           render json: {status: 'SUCCESS', message:'Updated timesheet', data:timesheet}, status: :ok
         else
           render json: {status: 'ERROR', message:'Timesheet not updated', data:timesheet.errors}, status: :unprocessable_entity
