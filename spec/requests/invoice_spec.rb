@@ -13,5 +13,9 @@ RSpec.describe 'Invoice API', type: :request do
     it 'generates the invoice with correct total' do
       expect(json["total"]).to eq(20000)
     end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
   end
 end
