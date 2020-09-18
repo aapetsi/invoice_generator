@@ -52,3 +52,7 @@ From the root of the application run:<br>
 `bundle exec rspec`
 
 #
+
+### Assumptions Made in building the project
+
+- it is assumed that the employee_id is already generated and unique to each employee
