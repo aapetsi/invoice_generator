@@ -24,26 +24,18 @@ RSpec.describe 'Timesheet API', type: :request do
 
   # Test suite for GET /timesheet/id
   describe 'GET /api/v1/timesheet/:id' do
-    before { GET "/api/v1/timesheet/#{timesheet_id}" }
+    before { get "/api/v1/timesheet/#{timesheet_id}" }
 
     context 'when the record exists' do
-      # it 'returns the timesheet' do
-      #   expect(json).not_to be_empty
-      #   expect(json["data"]["id"]).to eq(timesheet_id)
-      # end
+      it 'returns the timesheet' do
+        expect(json).not_to be_empty
+        expect(json["data"]["id"]).to eq(timesheet_id)
+      end
 
-      # it 'returns status code 200' do
-      #   expect(response).to have_http_status(200)
-      # end
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
     end
-
-    # context 'when the record does not exist' do
-    #   let(:timesheet_id) { "200" }
-
-    #   it 'returns status code 404' do
-    #     puts response
-    #   end
-    # end
   end
 
   # Test suite for POST /timesheet

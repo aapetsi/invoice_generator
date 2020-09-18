@@ -48,6 +48,6 @@ Make sure your database server is running
 
 ### How to run the test suite <br>
 
-From the root of the application run `bundle exec rspec`
+From the root of the application run:<br> `bundle exec rspec`
 
 #
