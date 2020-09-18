@@ -5,8 +5,8 @@ one:
   billable_rate: 1.5
   company: MyString
   date: MyString
-  start_time: MyString
-  end_time: MyString
+  start_time: 1
+  end_time: 1
   total_hours: 1.5
 
 two:
@@ -14,6 +14,6 @@ two:
   billable_rate: 1.5
   company: MyString
   date: MyString
-  start_time: MyString
-  end_time: MyString
+  start_time: 1
+  end_time: 1
   total_hours: 1.5

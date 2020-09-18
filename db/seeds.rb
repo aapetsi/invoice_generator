@@ -9,70 +9,70 @@
   Timesheet.create!({
     employee_id: '1', 
     billable_rate: 300,
-    company: 'Facebook',
+    company: 'facebook',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '1', 
     billable_rate: 300,
-    company: 'Yahoo',
+    company: 'yahoo',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '2', 
     billable_rate: 400,
-    company: 'Google',
+    company: 'google',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '2', 
     billable_rate: 400,
-    company: 'Yahoo',
+    company: 'yahoo',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '2', 
     billable_rate: 400,
-    company: 'Facebook',
+    company: 'facebook',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '3', 
     billable_rate: 450,
-    company: 'Google',
+    company: 'google',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 
   Timesheet.create!({
     employee_id: '3', 
     billable_rate: 450,
-    company: 'Facebook',
+    company: 'facebook',
     date: '2020-01-01',
-    start_time: '09:00',
-    end_time: '15:00',
+    start_time: 900,
+    end_time: 1500,
     total_hours: 6
   })
 end 

@@ -2,19 +2,16 @@ module Api
   module V1
     class InvoiceController < ApplicationController
       def show
-        timesheets = Timesheet.where(company: params[:id])
+        timesheets = Timesheet.select("employee_id, billable_rate, SUM(billable_rate * total_hours) as total_cost, SUM(total_hours) as number_of_hours").where(company: params[:id]).group("employee_id, billable_rate")
+        
+        # Calculate total cost
         total_cost = 0.0
-        puts '-----------'
+  
         timesheets.each do |timesheet|
-          total_cost += timesheet.total_hours * timesheet.billable_rate
-          puts timesheet.company
+          total_cost += timesheet.total_cost
         end
-        puts '-----------'
-        render json: {status: 'SUCCESS', message:'Loaded timesheets', data:timesheets, total:total_cost}, status: :ok
-      end
-
-      def invoice_params
-        params.permit(:company_name)
+       
+        render json: {status: 'SUCCESS', message:'Generated invoice', total: total_cost, data: timesheets}, status: :ok
       end
     end
   end

@@ -3,25 +3,23 @@ module Api
     class TimesheetController < ApplicationController
       def index
         timesheets = Timesheet.order('created_at DESC')
-        render json: {status: 'SUCCESS', message:'Loaded timesheets', data:timesheets}, status: :ok
+        render json: {status: 'SUCCESS', message:'Loaded timesheets', data: timesheets}, status: :ok
       end
 
       def show
         timesheet = Timesheet.find(params[:id])
-        render json: {status: 'SUCCESS', message:'Loaded timesheets', data:timesheet}, status: :ok
+        render json: {status: 'SUCCESS', message:'Loaded timesheets', data: timesheet}, status: :ok
       end
 
       def create
         timesheet = Timesheet.new(timesheet_params)
-
-        puts '============'
-        puts timesheet_params["end_time"] + timesheet_params["start_time"]
-        puts "============"
+        total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
+        timesheet.total_hours = total_hours
 
         if timesheet.save
-          render json: {status: 'SUCCESS', message:'Saved timesheet', data:timesheet}, status: :ok
+          render json: {status: 'SUCCESS', message:'Saved timesheet', data: timesheet}, status: :ok
         else 
-          render json: {status: 'ERROR', message:'Timesheet not saved', data:timesheet.errors}, status: :unprocessable_entity
+          render json: {status: 'ERROR', message:'Timesheet not saved', data: timesheet.errors}, status: :unprocessable_entity
         end
       end
 
@@ -43,7 +41,7 @@ module Api
       private
 
       def timesheet_params
-        params.permit(:employee_id, :billable_rate, :company, :date, :start_time, :end_time)
+        params.permit(:employee_id, :billable_rate, :company, :date, :start_time, :end_time, :total_hours)
       end
     end
   end
