@@ -17,7 +17,7 @@ This README will provide you with the necessary steps to get up and running with
 ### Configuration<br>
 
 To begin working on this repo, first either clone or download the repo by running:<br>
-`git clone https://github.com/aapetsi/invoice_generator` && `cd invoice_generator`<br>
+`git clone https://github.com/aapetsi/invoice_generator.git` && `cd invoice_generator`<br>
 This downloads the repository onto your local machine and changes directory to the application folder.<br>
 
 Once this is complete, you will need to install all the required dependencies used in the project. Execute the following code:<br>
