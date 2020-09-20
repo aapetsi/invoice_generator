@@ -39,20 +39,17 @@ module Api
         timesheet = Timesheet.find(params[:id])
 
         if timesheet.update(timesheet_params)
-          total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
-          timesheet.total_hours = total_hours
 
           if timesheet_params[:start_time]
-            puts '============='
             timesheet.start_time = timesheet_params[:start_time].tr(':', '').to_f
-            puts '============='
           end
 
           if timesheet_params[:end_time]
-            puts '============='
             timesheet.end_time = timesheet_params[:end_time].tr(':', '').to_f
-            puts '============='
           end
+
+          total_hours = (timesheet.end_time - timesheet.start_time) / 100.0
+          timesheet.total_hours = total_hours
           
           render json: {status: 'SUCCESS', message: 'Updated timesheet', data: timesheet}, status: :ok
         else
