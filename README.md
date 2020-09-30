@@ -36,6 +36,9 @@ You can optionally add `-p` to specify the port on which the server should run. 
 This project was created using the `PostgreSQL` database.<br>
 Make sure your database server is running
 
+- Creating the database model / schema<br>
+  `rails g model Timesheet employee_id:string billable_rate:float company:string date:string start_time:integer end_time:integer total_hours:float`
+
 - Creating the database migrations
   Run the following code
   `rails db:migrate`. This creates the database tables based on the schema definition
