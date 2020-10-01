@@ -20,11 +20,10 @@ module Api
         timesheet.total_hours = total_hours
         timesheet.company = timesheet.company.downcase
 
-
         if timesheet.save
-          render json: {status: 'SUCCESS', message:'Saved timesheet', data: timesheet}, status: :ok
+          render json: { status: 'SUCCESS', message:'Saved timesheet', data: timesheet }, status: :ok
         else 
-          render json: {status: 'ERROR', message:'Timesheet not saved', data: timesheet.errors}, status: :unprocessable_entity
+          render json: { status: 'ERROR', message:'Timesheet not saved', data: timesheet.errors }, status: :unprocessable_entity
         end
       end
 
