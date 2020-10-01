@@ -3,13 +3,13 @@ module Api
     class TimesheetController < ApplicationController
       def index
         timesheets = Timesheet.order('created_at DESC')
-        render json: {status: 'SUCCESS', message:'Loaded timesheets', data: timesheets}, status: :ok
+        render json: { status: 'SUCCESS', message:'Loaded timesheets', data: timesheets }, status: :ok
       end
 
       def show
         timesheet = Timesheet.find(params[:id])
         
-        render json: {status: 'SUCCESS', message:'Loaded timesheet', data: timesheet}, status: :ok
+        render json: { status: 'SUCCESS', message:'Loaded timesheet', data: timesheet }, status: :ok
       end
 
       def create
