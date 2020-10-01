@@ -6,9 +6,11 @@ module Api
         
         <<-DOC
           Update code to throw error when the given timesheet is not found
+          timesheet = Timesheet.find(params[:id])
+          Consider replacing code below
         DOC
         if timesheets.length == 0
-          return render json: {status: 'FAILURE', message: 'No such company found'}, status: :not_found
+          return render json: { status: 'FAILURE', message: 'No such company found' }, status: :not_found
         end
         
         # Calculate total cost
@@ -18,7 +20,7 @@ module Api
           total_cost += timesheet.total_cost
         end
        
-        render json: {status: 'SUCCESS', message:'Generated invoice', total: total_cost, data: timesheets}, status: :ok
+        render json: { status: 'SUCCESS', message:'Generated invoice', total: total_cost, data: timesheets }, status: :ok
       end
     end
   end
